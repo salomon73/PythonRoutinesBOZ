@@ -24,10 +24,10 @@ import h5py as h5
 # INIT + RUN #
 ##############
 
-file     = 'InputScan'
+file     = 'Name'
 filename  = file + '.sp.h5'
 bozout   = file +'.boz.h5'
-b        = init_from_spec('./OutputSPEC/'+filename)
+b        = init_from_spec('path_to_file'+filename)
 b.verbose = 2
 print("Selected surfaces:", b.compute_surfs)
 b.run()
@@ -36,7 +36,7 @@ b.run()
 # CREATE OUTPUT DATASETS #
 ##########################
 
-f   = h5.File('./OutputBOZ/'+ bozout, 'w')
+f   = h5.File('path_to_Boozer_out_file'+ bozout, 'w')
 print(f.filename)
 grp = f.create_group('Booz_xForms')
 grp.create_group('Inputs')
@@ -104,15 +104,16 @@ f.close()
 
 plt.figure
 bx.surfplot(b, js=0, fill=False, cmap=plt.cm.jet, ntheta=50, nphi=90, ncontours=25)
-plt.savefig('QH001.eps')
+plt.savefig('Contour.eps')
 plt.show()
 
 
 plt.figure
 bx.surfplot(b, js=0, cmap=plt.cm.jet, shading = 'gouraud')
-plt.savefig('QA001_filled.eps')
+plt.savefig('Filled.eps')
 plt.show()
 
+# ANOTHER EXAMPLE
 # plt.figure
 # bx.surfplot(b, js=0, fill=False, cmap=plt.cm.jet, levels=np.arange(0.8, 1.3, 0.05))
 # plt.show()
