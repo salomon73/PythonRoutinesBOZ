@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May  9 13:32:45 2022
+
+This file enables to test if the modB
+Fourier modes were correctly implemented 
+in Python, in order to pass them as a 
+Booz_X_Form input
+
+@author: S.Guinchard
+"""
 import py_spec as sp
 import booz_xform as bx
 import numpy as np
