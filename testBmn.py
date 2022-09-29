@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import h5py as h5 
 
 
-d         = sp.SPECout('QA_002.sp.h5')
+d         = sp.SPECout('Filename.sp.h5')
 
 verbose   = 1
 asym      = False 
@@ -40,8 +40,8 @@ toroidal_flux = d.input.physics.phiedge
 
 ######## MOD B ########
 
-Nt   = 8#d.grid.Nt
-Nz   = 8#d.grid.Nz
+Nt   = d.grid.Nt
+Nz   = d.grid.Nz
 sarr = np.linspace(0,1,2)
 tarr = np.linspace(0,2*np.pi,Nt)
 zarr = np.linspace(0,2*np.pi/nfp,Nz)  
@@ -83,19 +83,6 @@ for ii in range(-ntor,0):
 for ll in range(0,np.size(Bmn_trunc)):
 	Bmn[ll+ntor+1] = Bmn_trunc[ll]  
 
-
- # 		for line in range (0,np.size(tarr)):
- # 			for column in range (0,np.size(zarr)):
- # 				modBcos[line][column] = modBsurf[line][column]* np.cos(np.double(m)*tarr[line] - np.double(n)*np.double(nfp)*zarr[column])
 	
 print('Bmn_ = ', Bmn_)
-#print('Bmn_trunc = ', Bmn_trunc)
-#print('Bmn = ', Bmn)
 
-# f       = h5.File('QA_002.sp.h5', 'r+')
-# grp     = f.create_group('results')
-# inputs  = grp.create_group('Inputs')
-
-# inputs.create_dataset('Bmn_',   data = np.transpose(Bmn_))
-
-# f.close()
