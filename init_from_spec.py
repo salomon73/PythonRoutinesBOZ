@@ -4,7 +4,7 @@
 Created on Mon May  9 17:51:56 2022
 This file initialises a booz x form instance 
 without changing the SPEC output file
-@authors: S.Guinchard, A.Baillod
+@authors: A.Baillod, S.Guinchard
 """
 
 import py_spec as sp
